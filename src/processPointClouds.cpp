@@ -20,6 +20,10 @@ typename pcl::PointCloud<PointT>::Ptr ProcessPointClouds<PointT>::FilterCloud(
     auto startTime = std::chrono::steady_clock::now();
 
     // TODO:: Fill in the function to do voxel grid point reduction and region based filtering
+    pcl::VoxelGrid<pcl::PCLPointCloud2> sor;
+    sor.setInputCloud(cloud);
+    sor.setLeafSize(filterRes, filterRes, filterRes);
+    sor.filter(*cloud);
 
     auto endTime = std::chrono::steady_clock::now();
     auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
@@ -72,6 +76,11 @@ std::vector<typename pcl::PointCloud<PointT>::Ptr> ProcessPointClouds<PointT>::C
     std::vector<typename pcl::PointCloud<PointT>::Ptr> clusters;
 
     // TODO:: Fill in the function to perform euclidean clustering to group detected obstacles
+    pcl::EuclideanClusterExtraction<PointT> extractor{};
+    extractor.setClusterTolerance(clusterTolerance);
+    extractor.setMinClusterSize(minSize);
+    extractor.setMaxClusterSize(maxSize);
+    // extractor.setSearchMethod(tree);
 
     auto endTime = std::chrono::steady_clock::now();
     auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
