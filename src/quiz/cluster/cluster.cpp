@@ -26,7 +26,7 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr CreateData(std::vector<std::vector<float>> p
 {
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>());
 
-    for (int i = 0; i < points.size(); i++)
+    for (auto i = 0U; i < points.size(); i++)
     {
         pcl::PointXYZ point;
         point.x = points[i][0];
@@ -125,7 +125,7 @@ int main()
 
     KdTree* tree = new KdTree;
 
-    for (int i = 0; i < points.size(); i++)
+    for (auto i = 0U; i < points.size(); i++)
         tree->insert(points[i], i);
 
     int it = 0;

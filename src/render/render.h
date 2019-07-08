@@ -43,16 +43,16 @@ enum CameraAngle
 struct Car
 {
 
-    // units in meters
-    Vect3 position, dimensions;
-
-    std::string name;
-    Color color;
-
     Car(Vect3 setPosition, Vect3 setDimensions, Color setColor, std::string setName)
         : position(setPosition), dimensions(setDimensions), color(setColor), name(setName)
     {
     }
+
+    // units in meters
+    Vect3 position, dimensions;
+
+    Color color;
+    std::string name;
 
     void render(pcl::visualization::PCLVisualizer::Ptr& viewer)
     {

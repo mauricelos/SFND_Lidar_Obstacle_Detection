@@ -92,7 +92,7 @@ int main()
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloudInliers(new pcl::PointCloud<pcl::PointXYZ>());
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloudOutliers(new pcl::PointCloud<pcl::PointXYZ>());
 
-    for (int index = 0; index < cloud->points.size(); index++)
+    for (auto index = 0U; index < cloud->points.size(); index++)
     {
         pcl::PointXYZ point = cloud->points[index];
         if (inliers.count(index))
