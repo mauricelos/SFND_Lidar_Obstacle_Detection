@@ -24,9 +24,9 @@ class ProcessPointClouds
 {
   public:
     // constructor
-    ProcessPointClouds();
+    ProcessPointClouds() = default;
     // deconstructor
-    ~ProcessPointClouds();
+    ~ProcessPointClouds() = default;
 
     void numPoints(typename pcl::PointCloud<PointT>::Ptr cloud);
 
@@ -55,4 +55,5 @@ class ProcessPointClouds
 
     std::vector<boost::filesystem::path> streamPcd(std::string dataPath);
 };
-#endif /* PROCESSPOINTCLOUDS_H_ */
+
+#endif  // PROCESSPOINTCLOUDS_H_

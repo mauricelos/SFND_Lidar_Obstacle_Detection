@@ -79,7 +79,6 @@ std::unordered_set<int> Ransac(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, int ma
 
 int main()
 {
-
     // Create viewer
     pcl::visualization::PCLVisualizer::Ptr viewer = initScene();
 

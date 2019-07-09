@@ -47,7 +47,6 @@ void render2DTree(Node* node,
                   int& iteration,
                   uint depth = 0)
 {
-
     if (node != NULL)
     {
         Box upperWindow = window;
@@ -87,7 +86,6 @@ std::vector<std::vector<int>> euclideanCluster(const std::vector<std::vector<flo
                                                KdTree* tree,
                                                float distanceTol)
 {
-
     // TODO: Fill out this function to return list of indices for each cluster
 
     std::vector<std::vector<int>> clusters;
@@ -97,7 +95,6 @@ std::vector<std::vector<int>> euclideanCluster(const std::vector<std::vector<flo
 
 int main()
 {
-
     // Create viewer
     Box window;
     window.x_min = -10;

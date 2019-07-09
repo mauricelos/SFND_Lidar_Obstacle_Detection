@@ -1,5 +1,5 @@
 cc_library(
-    name = "obstacle_detection",
+    name = "obstacle_detection_lib",
     srcs = [
         "src/processPointClouds.cpp",
         "src/render/render.cpp",
@@ -24,17 +24,17 @@ cc_library(
 cc_binary(
     name = "environment",
     srcs = ["src/environment.cpp"],
-    deps = ["//:obstacle_detection"],
+    deps = ["//:obstacle_detection_lib"],
 )
 
 cc_binary(
     name = "quizransac",
     srcs = ["src/quiz/ransac/ransac2d.cpp"],
-    deps = ["//:obstacle_detection"],
+    deps = ["//:obstacle_detection_lib"],
 )
 
 cc_binary(
     name = "quizcluster",
     srcs = ["src/quiz/cluster/cluster.cpp"],
-    deps = ["//:obstacle_detection"],
+    deps = ["//:obstacle_detection_lib"],
 )

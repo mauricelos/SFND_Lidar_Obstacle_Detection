@@ -2,18 +2,6 @@
 
 #include "processPointClouds.h"
 
-// constructor:
-template <typename PointT>
-ProcessPointClouds<PointT>::ProcessPointClouds()
-{
-}
-
-// de-constructor:
-template <typename PointT>
-ProcessPointClouds<PointT>::~ProcessPointClouds()
-{
-}
-
 template <typename PointT>
 void ProcessPointClouds<PointT>::numPoints(typename pcl::PointCloud<PointT>::Ptr cloud)
 {

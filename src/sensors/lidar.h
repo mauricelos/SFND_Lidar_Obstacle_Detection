@@ -1,19 +1,15 @@
 #ifndef LIDAR_H
 #define LIDAR_H
+
+#include <math.h>
 #include <chrono>
 #include <ctime>
-#include "../render/render.h"
+#include "render/render.h"
 
-const double pi = 3.1415;
+const double pi = M_PI;
 
 struct Ray
 {
-
-    Vect3 origin;
-    double resolution;
-    Vect3 direction;
-    Vect3 castPosition;
-    double castDistance;
 
     // parameters:
     // setOrigin: the starting position from where the ray is cast
@@ -78,20 +74,16 @@ struct Ray
                 pcl::PointXYZ(castPosition.x + rx * sderr, castPosition.y + ry * sderr, castPosition.z + rz * sderr));
         }
     }
+
+    Vect3 origin;
+    double resolution;
+    Vect3 direction;
+    Vect3 castPosition;
+    double castDistance;
 };
 
 struct Lidar
 {
-
-    std::vector<Ray> rays;
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud;
-    std::vector<Car> cars;
-    Vect3 position;
-    double groundSlope;
-    double minDistance;
-    double maxDistance;
-    double resoultion;
-    double sderr;
 
     Lidar(std::vector<Car> setCars, double setGroundSlope)
         : cloud(new pcl::PointCloud<pcl::PointXYZ>()), position(0, 0, 2.6)
@@ -126,10 +118,7 @@ struct Lidar
         }
     }
 
-    ~Lidar()
-    {
-        // pcl uses boost smart pointers for cloud pointer so we don't have to worry about manually freeing the memory
-    }
+    ~Lidar() = default;
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr scan()
     {
@@ -144,6 +133,16 @@ struct Lidar
         cloud->height = 1;  // one dimensional unorganized point cloud dataset
         return cloud;
     }
+
+    std::vector<Ray> rays;
+    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud;
+    std::vector<Car> cars;
+    Vect3 position;
+    double groundSlope;
+    double minDistance;
+    double maxDistance;
+    double resoultion;
+    double sderr;
 };
 
-#endif
+#endif  // LIDAR_H

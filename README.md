@@ -17,6 +17,8 @@ In this course we will be talking about sensor fusion, whch is the process of ta
 
 ### Ubuntu 
 
+Install Bazel -> [Bazel Install Guide](https://docs.bazel.build/versions/master/install.html)
+
 ```bash
 $> sudo apt install libpcl-dev
 $> cd ~
@@ -27,6 +29,7 @@ $> bazel run //:environment
 $> bazel run //:quizransac
 $> bazel run //:quizcluster
 ```
+Hint: In order to run everything properly, dependencies (PCL, VTK, Cairo, X11, Boost) have to be installed in the /usr folder (default path when running "sudo apt install libpcl-dev")!
 
 ### Windows 
 

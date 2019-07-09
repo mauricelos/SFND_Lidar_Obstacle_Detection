@@ -1,23 +1,24 @@
 /* \author Aaron Brown */
 // Quiz on implementing kd tree
 
+#ifndef KDTREE_H
+#define KDTREE_H
+
 #include "render/render.h"
 
 // Structure to represent node of kd tree
 struct Node
 {
+    Node(std::vector<float> arr, int setId) : point(arr), id(setId), left(NULL), right(NULL) {}
+
     std::vector<float> point;
     int id;
     Node* left;
     Node* right;
-
-    Node(std::vector<float> arr, int setId) : point(arr), id(setId), left(NULL), right(NULL) {}
 };
 
 struct KdTree
 {
-    Node* root;
-
     KdTree() : root(NULL) {}
 
     void insert(std::vector<float> point, int id)
@@ -32,4 +33,8 @@ struct KdTree
         std::vector<int> ids;
         return ids;
     }
+
+    Node* root;
 };
+
+#endif  // KDTREE_H
